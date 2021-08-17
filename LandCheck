@@ -1,0 +1,292 @@
+import java.util.*;
+import java.lang.Math;
+/**
+ * Write a description of class LandCheck here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class LandCheck
+{
+   public LandCheck(){}
+   
+   public static void main(String args[])
+   {
+     LandCheck lc = new LandCheck();
+     Scanner s = new Scanner(System.in);
+     ArrayList<Card> deck = new ArrayList<Card>();
+     ArrayList<Integer> turnFail = new ArrayList<Integer>();
+     int numRun = 0;
+     int numLands = 0;
+     int numNonLands = 99 - numLands;
+     double avgTurn = 0.0;
+     double stdev = 0.0;
+     int deckSize = 0;
+     double numZero = 0.0;
+     int numTurns = 0;
+         double numOne = 0.0;
+         double numTwo = 0.0;
+         double numThree = 0.0;
+         double numFour = 0.0;
+         double numFive = 0.0;
+         double numSix = 0.0;
+         double numSeven = 0.0;
+         double numEight = 0.0;
+         double numNine = 0.0;
+         double numTen = 0.0;
+         double numEleven = 0.0;
+         double numTwelve = 0.0;
+         double numThirteen = 0.0;
+         double numFourteen = 0.0;
+         double numFifteen = 0.0;
+         double numSixteen = 0.0;
+         double numSeventeen = 0.0;
+         double numEighteen = 0.0;
+         double numNineteen = 0.0;
+         double numTwenty = 0.0;
+         double avgCmcDeck = 2.4848;
+         double stdDevDeck = 1.0623;
+         double total = 0.0;
+         stdDevDeck *= 2;
+         avgCmcDeck = (int)(avgCmcDeck + 0.5);
+         stdDevDeck = (int)(stdDevDeck + 0.5);
+         System.out.print("How many lands are in the deck? ");
+         numLands = s.nextInt();
+         System.out.print("What turn? ");
+         numTurns = s.nextInt();
+         System.out.println("Please wait while I calculate...");
+     do{
+         
+         int tem = 0;
+         
+         int turn = -1;
+         int numCards = 7;
+         boolean fail = false;
+         boolean playLand = false;
+   
+     for(int i = 0; i < numLands; i++)
+     {
+       Card temp = new Card("land", -1);   
+       deck.add(temp); 
+       deckSize++;
+     }
+     for(int j = 0; j < numNonLands; j++)
+     {
+       Card temp = new Card("nonland", 1);
+       deck.add(temp);
+       deckSize++;
+     }
+     for(int k = 0; k < 12; k++)
+     {
+         Collections.shuffle(deck);
+     }
+     for(int m = 0; m < 7 + numTurns; m++)
+     {
+          
+          if(deck.get(m).getType(deck.get(m)).equals("land"))
+          {
+            tem++;  
+          }
+          
+     }
+          if(tem == 0)
+          {
+            numZero++;
+          }
+          else if(tem == 1)
+          {
+           numOne++;  
+          }
+          else if(tem == 2)
+          {
+        
+          numTwo++;
+          }
+          else if(tem == 3)
+          {
+          
+          numThree++;
+          }
+          else if(tem == 4)
+          {
+            
+            numFour++;
+          }
+          else if(tem == 5)
+          {
+            
+            numFive++;
+          }
+          else if(tem == 6)
+          {
+           
+            numSix++;
+          }
+          else if(tem == 7)
+          {
+            
+            numSeven++;
+          }
+          else if(tem == 8)
+          {
+           
+            numEight++;
+          }
+          else if(tem == 9)
+          {
+           
+            numNine++;
+          }
+          else if(tem == 10)
+          {
+           
+            numTen++;
+          }
+          else if(tem == 11)
+          {
+            
+            numEleven++;
+          }
+          else if(tem == 12)
+          {
+           
+            numTwelve++;
+          }
+          else if(tem == 13)
+          {
+            
+            numThirteen++;
+          }
+          else if(tem == 14)
+          {
+            
+            numFourteen++;
+          }
+      deck.clear();
+      numRun++;
+      
+      
+      
+    }while(numRun < 1000000);
+    avgTurn /= numRun;
+    stdev = lc.sd(turnFail, avgTurn);
+    numZero /= 10000;
+    numOne /= 10000;
+    numTwo /= 10000;
+    numThree /= 10000;
+    numFour /= 10000;
+    numFive /= 10000;
+    numSix /= 10000;
+    numSeven /= 10000;
+    numEight /= 10000;
+    numNine /= 10000;
+    numTen /= 10000;
+    numEleven /= 10000;
+    numTwelve /= 10000;
+    numThirteen /= 10000;
+    numFourteen /= 10000;
+    numFifteen /= 10000;
+    numSixteen /= 10000;
+    numSeventeen /= 10000;
+    numEighteen /= 10000;
+    numNineteen /= 10000;
+    numTwenty /= 10000;
+    for(int y = numTurns; y <= 20; y++)
+    {
+      switch(y)
+      {
+        case 1:
+        total+= numOne;
+        break;
+        case 2:
+        total += numTwo;
+        break;
+        case 3:
+        total += numThree;
+        break;
+        case 4:
+        total += numFour;
+        break;
+        case 5:
+        total +=numFive;
+        break;
+        case 6:
+        total += numSix;
+        break;
+        case 7:
+        total += numSeven;
+        break;
+        case 8:
+        total += numEight;
+        break;
+        case 9:
+        total += numNine;
+        break;
+        case 10:
+        total += numTen;
+        break;
+        case 11:
+        total += numEleven;
+        break;
+        case 12:
+        total += numTwelve;
+        break;
+        case 13:
+        total += numThirteen;
+        break;
+        case 14:
+        total += numFourteen;
+        break;
+        case 15:
+        total += numFifteen;
+        break;
+        case 16:
+        total += numSixteen;
+        break;
+        case 17:
+        total += numSeventeen;
+        break;
+        case 18:
+        total += numEighteen;
+        break;
+        case 19:
+        total += numNineteen;
+        break;
+        case 20:
+        total += numTwenty;
+        break;
+        
+      }
+    }
+    
+    
+ 
+    System.out.println("With " + numLands + " lands here is probability of getting at least " + numTurns + " lands by turn " + numTurns + ": " + total + "%");
+    
+    System.out.println();
+   }
+   
+   public double sd (ArrayList<Integer> table, double average)
+  {
+    // Step 1: 
+    double mean = average;
+    double temp = 0;
+
+    for (int i = 0; i < table.size(); i++)
+    {
+        int val = table.get(i);
+
+        // Step 2:
+        double squrDiffToMean = Math.pow(val - mean, 2);
+
+        // Step 3:
+        temp += squrDiffToMean;
+    }
+
+    // Step 4:
+    double meanOfDiffs = (double) temp / (double) (table.size());
+
+    // Step 5:
+    return Math.sqrt(meanOfDiffs);
+  }
+}
